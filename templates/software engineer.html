@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering Pathway</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f3e5f5, #fce4ec);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            display: flex;
+            align-items: baseline;
+            justify-content: left;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: justify;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        h1 {
+            color: #8e24aa;
+            font-weight: bold;
+            margin-bottom: 25px;
+            font-size: 2.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        h3 {
+            color: #8e24aa;
+            margin-top: 30px;
+            font-family: 'Poppins', sans-serif;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: baseline;
+            justify-content: left;
+            gap: 10px;
+        }
+        a.college-link {
+            color: #00796b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a.college-link:hover {
+            text-decoration: underline;
+            color: #E91E63;
+        }
+        .emoji {
+            font-size: 2rem;
+        }
+        a.btn {
+            background-color: #BA68C8;
+            border: none;
+            font-weight: bold;
+        }
+        a.btn:hover {
+            background-color: #E91E63;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #8e24aa;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50%;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: none;
+            cursor: pointer;
+        }
+        .back-to-top:hover {
+            background-color: #E91E63;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="emoji">💻 Software Engineering Pathway</h1>
+
+        <h3>📚 Subjects to Study (11th & 12th):</h3>
+        <ul>
+            <li>📐 Mathematics</li>
+            <li>🔬 Physics</li>
+            <li>🧪 Chemistry</li>
+            <li>💻 Computer Science (optional but beneficial)</li>
+        </ul>
+
+        <h3>📝 Entrance Exams:</h3>
+        <ul>
+            <li>🎯 JEE Main / JEE Advanced (for IITs, NITs, IIITs)</li>
+            <li>🎓 BITSAT (BITS Pilani)</li>
+            <li>🏫 VITEEE (VIT University)</li>
+            <li>🏛️ SRMJEEE (SRM University)</li>
+        </ul>
+
+        <h3>🏫 Top Colleges:</h3>
+        <ul>
+            <li>🏆<a class="college-link" href="https://en.wikipedia.org/wiki/Indian_Institutes_of_Technology" target="_blank">Indian Institutes of Technology (IITs)</a></li>
+            <li>🎓 <a class="college-link" href="https://en.wikipedia.org/wiki/National_Institutes_of_Technology" target="_blank">National Institutes of Technology (NITs)</a></li>
+            <li>🏛️ <a class="college-link" href="https://www.iiit.ac.in/" target="_blank">IIIT Hyderabad (IIITs)</a></li>
+            <li>📍 <a class="college-link" href="https://www.bits-pilani.ac.in/" target="_blank">BITS Pilani</a></li>
+             <li>📍 <a class="college-link" href="https://vit.ac.in/" target="_blank">VIT</a></li>
+
+        </ul>
+<h3>💡 Did You Know?</h3>
+        <p>India produces over 1.5 million engineering graduates every year, and Software Engineering continues to be one of the most sought-after careers worldwide.</p>
+        <a href="/" class="btn btn-primary mt-3">⬅ Back</a>
+    </div>
+
+<!-- Floating back-to-top button -->
+    <button class="back-to-top" onclick="scrollToTop()">⬆️</button>
+
+    <script>
+        // Show the back-to-top button when scrolling down
+        window.onscroll = function() {
+            let button = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
+

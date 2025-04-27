@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studies Recommendation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .mynav {
+            border-radius: 10px;
+            box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.1); /* Increased shadow for mynav */
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background color */
+            color: white;
+            padding: 10px;
+            width: 100%;
+        }
+#chat-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #4b0082;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    z-index: 999;
+}
+
+#chatbot {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+#chat-header {
+    background-color: #6a5acd;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#chat-body {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+#chat-input {
+    border: none;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+}
+
+        .container {
+
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .container h1 {
+            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            background-color: #ff4081;
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 30px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #e91e63;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            0% {opacity: 0; transform: translateY(30px);}
+            100% {opacity: 1; transform: translateY(0);}
+        }
+        .bg-image {
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            transition: background-image 2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 100px;
+        }
+.navbar-nav .nav-link {
+    font-weight: 400;
+    color: floralwhite;
+}
+.navbar .nav-link {
+    color: white !important;
+}
+    </style>
+
+<body>
+
+<div class="bg-image" id="bgImage">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="background: linear-gradient(90deg, #7b1fa2, #e91e63);">
+  <a class="navbar-brand" href="/">EduPathway</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link mx-3" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link mx-3" href="/faq">FAQs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link mx-3" href="/about">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link mx-3" href="/blog">Blog</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link mx-3" href="/industrytrends">Industry Trends</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+    <div class="container text-center">
+            <h1>Discover Your Perfect Stream Here!</h1>
+            <p>This recommendation system aims to assist High School students in selecting the most suitable studies and courses based on their academic performance, interests, and career aspirations.</p>
+            <p>Ready to unlock your potential? </p>
+            <p>Click the button below to get recommendations:</p>
+            <a href="/recommend" class="btn btn-primary">Get Recommendations</a>
+    </div>
+</div>
+    <script>
+        const images = ["/static/img.png", "/static/img_1.png", "/static/img_2.png"]; // Update image paths
+        let currentIndex = 0;
+
+        function changeBackground() {
+            document.getElementById('bgImage').style.backgroundImage = `url('${images[currentIndex]}')`;
+            currentIndex = (currentIndex + 1) % images.length;
+            setTimeout(changeBackground, 4000); // Change every 4 seconds
+        }
+
+        changeBackground();
+
+    </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Chatbot Button -->
+<div id="chat-icon" onclick="toggleChatbot()">💬</div>
+
+<!-- Chatbot Popup -->
+<div id="chatbot">
+    <div id="chat-header">EduBot - Career Assistant</div>
+    <div id="chat-body"></div>
+    <input type="text" id="chat-input" placeholder="Ask me something..." onkeydown="handleInput(event)">
+</div>
+
+<script>
+function toggleChatbot() {
+    const bot = document.getElementById("chatbot");
+    bot.style.display = bot.style.display === "none" ? "block" : "none";
+}
+
+function handleInput(event) {
+    if (event.key === "Enter") {
+        const input = document.getElementById("chat-input");
+        const userText = input.value.trim();
+        if (userText === "") return;
+
+        appendMessage("You", userText);
+        respond(userText.toLowerCase());
+        input.value = "";
+    }
+}
+
+function appendMessage(sender, message) {
+    const chatBody = document.getElementById("chat-body");
+    const msg = document.createElement("div");
+    msg.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function respond(input) {
+    let response = "🤖 I'm not sure about that. Try asking about careers, subjects or colleges!";
+
+    if (input.includes("hello") || input.includes("hi")) {
+        response = "Hello! 👋 I'm EduBot. Ask me about your career path!";
+    } else if (input.includes("career") || input.includes("stream")) {
+        response = "You can discover your ideal stream by clicking 'Get Recommendations' on the homepage.";
+    } else if (input.includes("subjects")) {
+        response = "Subjects vary by stream. Science includes PCM/PCB, Commerce includes Accounts, and Arts includes History, Geography, etc.";
+    } else if (input.includes("college")) {
+        response = "Top colleges include IITs, NITs, DU, IIMs, and NIFTs depending on your path!";
+    }
+else if (input.includes("thanks") || input.includes("bye") ) {
+        response = "It was really great helping you!"
+    }
+else if (input.includes("trends") || input.includes("trending") || input.includes("hot") || input.includes("trend")) {
+        response = "Check the 'Industry Trends' section on the website for trending fields and future scope in different domains!";
+    }
+    setTimeout(() => appendMessage("EduBot", response), 600);
+}
+
+</script>
+</body>
+
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Pathway</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #e0f7fa, #e1bee7);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            display: flex;
+            justify-content: left;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        h1 {
+            color: #6a1b9a;
+            font-weight: bold;
+            margin-bottom: 25px;
+            font-size: 2.5rem;
+        }
+        h3 {
+            color: #00796b;
+            margin-top: 30px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+        a.college-link {
+            color: #00796b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a.college-link:hover {
+            text-decoration: underline;
+            color: #004d40;
+        }
+        .emoji {
+            font-size: 2rem;
+        }
+        a.btn {
+            background-color: #8e24aa;
+            border: none;
+            font-weight: bold;
+        }
+        a.btn:hover {
+            background-color: #6a1b9a;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="emoji">👩‍⚕️ Path to Becoming a Doctor</h1>
+
+        <h3>📚 Subjects to Study (11th & 12th):</h3>
+        <ul>
+            <li>🔬 Physics</li>
+            <li>🧪 Chemistry</li>
+            <li>🧬 Biology</li>
+            <li>✍️ English</li>
+        </ul>
+
+        <h3>📝 Entrance Exams:</h3>
+        <ul>
+            <li>📄 NEET (National Eligibility cum Entrance Test)</li>
+            <li>🏥 AIIMS (merged with NEET)</li>
+            <li>📌 State-level medical entrance exams (if applicable)</li>
+        </ul>
+
+        <h3>🏫 Top Medical Colleges:</h3>
+        <ul>
+            <li>🩺 <a class="college-link" href="https://www.aiims.edu/" target="_blank">AIIMS, Delhi</a></li>
+            <li>⛪ <a class="college-link" href="https://www.cmch-vellore.edu/" target="_blank">Christian Medical College (CMC), Vellore</a></li>
+            <li>🪖 <a class="college-link" href="https://www.afmc.nic.in/" target="_blank">Armed Forces Medical College (AFMC), Pune</a></li>
+            <li>🏙️ <a class="college-link" href="https://mamc.delhi.gov.in/" target="_blank">Maulana Azad Medical College (MAMC), Delhi</a></li>
+            <li>🌴 <a class="college-link" href="https://jipmer.edu.in/" target="_blank">JIPMER, Puducherry</a></li>
+        </ul>
+<h3>💡 Did You Know?</h3>
+<p>India produces over 90,000 MBBS graduates every year. With the rise of telemedicine and AI in healthcare, the medical field is evolving rapidly.</p>
+        <a href="/" class="btn btn-primary mt-3">⬅ Back</a>
+    </div>
+</body>
+</html>

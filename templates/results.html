@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Studies</title>
+
+    <!-- Bootstrap + Google Font -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #cfe4f9, #f8cdd9);
+            font-family: 'Quicksand', sans-serif;
+            color: #333;
+            padding-bottom: 50px;
+        }
+
+        .hero-section {
+            background: #4b0082;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            margin-bottom: 50px;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .list-group-item {
+            background-color: #fff;
+            border: 1px solid #e1bee7;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .list-group-item:hover {
+            background-color: #f3e5f5;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-box {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 25px 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            background-color: #4b0082;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: #7a3eb2;
+            transform: scale(1.05);
+        }
+        .card-box {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 25px 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 50px auto 0 auto;
+        }
+
+        .testimonials {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .testimonials h3 {
+            font-size: 1.5rem;
+            color: #4b0082;
+            margin-bottom: 20px;
+        }
+
+        .testimonials p {
+            font-style: italic;
+        }
+
+        .career-advice {
+            background-color: #e3f2fd;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .career-advice h2 {
+            color: #4b0082;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .career-advice p {
+            color: #555;
+        }
+/* Center the chart container */
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+            margin-top: 20px;
+        }
+
+        .chart-container .card-box {
+            width: 100%; /* Adjust width for better responsiveness */
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Add space between the charts */
+        .chart-container .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 40px;
+        }
+         /* Add space between the charts */
+        .chart-container .row {
+            gap: 10px; /* Add gap between columns */
+        }
+
+        /* Make sure the canvas elements inside the chart container are responsive */
+        .chart-container canvas {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Ensure content is centered while hero section takes full width */
+
+        /* Make sure heading doesn't overflow */
+        .hero-section h1 {
+            white-space: normal;
+            font-size: 2.5rem;
+        }
+
+        /* Add space below Contact Us button */
+        .cta-button {
+            margin-bottom: 30px;
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1>🌟 Discover Your Perfect Study Path!</h1>
+            <p>Explore study recommendations based on your academic performance and personal interests. Choose a path that aligns with your strengths and passion!</p>
+        </div>
+
+        <!-- Career Advice Section -->
+        <div class="career-advice">
+            <h2>This is what our expert system says regarding your career...</h2>
+            <p>Based on your academic data and performance, our system has analyzed and curated the best study paths for you. These paths are designed to help you excel in your career and educational journey. Take a look at the top recommendations we believe suit your profile the best!</p>
+        </div>
+        <!-- Recommended Studies Section -->
+        <div class="card-box">
+            <h2 class="text-center">🎯 Top Study Recommendations</h2>
+            <ul class="list-group">
+                {% for recommendation in recommendations %}
+                    <li class="list-group-item">
+                        <a href="{{ url_for('profession_page', name=recommendation[0]) }}">
+                            <strong>{{ recommendation[0] }}</strong>
+                        </a>
+                        with probability {{ recommendation[1] | round(3) }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Visual Dashboard Section -->
+        <div class="chart-container" style="margin-bottom: 50px;">
+        <div class="card-box">
+            <h2 class="text-center">📊 Visual Performance Dashboard</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <canvas id="careerChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+            </div>
+            </div>
+        <!-- Testimonials Section -->
+        <div class="testimonials">
+            <h3>What Our Users Say</h3>
+            <p><em>"The study suggestions were perfect for me! I now know which course I should pursue and am more confident about my future."</em> – Emily W.</p>
+            <p><em>"This system made my decision-making process so much easier. I got personalized recommendations that matched my skills and interests."</em> – Mark T.</p>
+        </div>
+    </div>
+<script>
+
+       var ctx2 = document.getElementById('careerChart').getContext('2d');
+
+    // Create a gradient for the background
+  var gradient = ctx2.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, '#8ac6d1'); // Light Blue
+gradient.addColorStop(1, '#1d3c6a'); // Dark Blue
+
+    // Use Jinja2 to embed the actual recommendation data into the JavaScript
+    var careerLabels = {{ recommendations|map(attribute=0)|list|tojson }};  // Career names
+    var careerData = {{ recommendations|map(attribute=1)|list|tojson }};    // Recommendation probabilities
+
+    var careerChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: careerLabels,  // Dynamic career names
+            datasets: [{
+                label: 'Career Suitability',
+                data: careerData,  // Dynamic recommendation data
+                backgroundColor: gradient,
+                borderColor: '#FF4D94',
+                borderWidth: 1
+            }]
+        }
+    });
+    </script>
+</body>
+</html>

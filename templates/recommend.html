@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studies Recommendation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Google Font for elegance -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<style>
+        body {
+            background: url('https://images.unsplash.com/photo-1740635341299-3b8e3490f546?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fGVkdWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            padding: 50px 20px;
+            color: #333;
+
+
+        }
+         .mynav {
+            background: linear-gradient(to right, #673ab7, #3f51b5);
+            color: white;
+            padding: 15px;
+            border-radius: 0 0 10px 10px;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .container {
+            margin-top: 40px;
+            background-color: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #4a148c;
+        }
+        .form-control {
+            border-radius: 8px;
+            box-shadow: none;
+            border: 1px solid #ced4da;
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #f06292, #ba68c8);
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #ab47bc, #64b5f6);
+        }
+
+        h2 {
+            color: #7b1fa2;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(123, 31, 162, 0.2);
+        }
+
+        input[readonly] {
+            background-color: #f3e5f5;
+        }
+
+        .info-section {
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-section h3 {
+            color: #4a148c;
+        }
+
+        .footer {
+            background-color: #f3e5f5;
+            padding: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+<style>
+    html {
+    scroll-behavior: smooth;
+  }
+.roadmap-container {
+    background-color: #f3e5f5;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #ba68c8;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-step {
+    padding: 20px 30px;
+    position: relative;
+    width: 50%;
+}
+
+.timeline-step.left {
+    left: 0;
+}
+
+.timeline-step.right {
+    left: 50%;
+}
+
+.timeline-step::before {
+    content: ' ';
+    position: absolute;
+    top: 20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #7b1fa2;
+    border: 4px solid #fff;
+    z-index: 1;
+}
+
+.timeline-step.left::before {
+    right: -13px;
+}
+
+.timeline-step.right::before {
+    left: -13px;
+}
+
+.timeline-step .content {
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.6s ease both;
+}
+
+.timeline-step.left .content {
+    margin-left: auto;
+    text-align: right;
+}
+
+.timeline-step.right .content {
+    margin-right: auto;
+    text-align: left;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 768px) {
+    .timeline-step {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-step.left, .timeline-step.right {
+        left: 0;
+    }
+
+    .timeline-step.left .content,
+    .timeline-step.right .content {
+        margin: 0;
+        text-align: left;
+    }
+
+    .timeline::after {
+        left: 30px;
+    }
+
+    .timeline-step::before {
+        left: 18px;
+    }
+}
+</style>
+
+     <script>
+        function calculateScores() {
+            var mathScore = parseFloat(document.getElementById("math_score").value);
+            var historyScore = parseFloat(document.getElementById("history_score").value);
+            var physicsScore = parseFloat(document.getElementById("physics_score").value);
+            var chemistryScore = parseFloat(document.getElementById("chemistry_score").value);
+            var biologyScore = parseFloat(document.getElementById("biology_score").value);
+            var englishScore = parseFloat(document.getElementById("english_score").value);
+            var geographyScore = parseFloat(document.getElementById("geography_score").value);
+
+            var totalScore = mathScore + historyScore + physicsScore + chemistryScore + biologyScore + englishScore + geographyScore;
+            var averageScore = totalScore / 7;
+
+            document.getElementById("total_score").value = totalScore.toFixed(2);
+            document.getElementById("average_score").value = averageScore.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+<div class = "mynav shadow-sm" style="background:palevioletred; color: white; text:bold; padding: 10px; width:100%">
+    <h1 class = "text-center">Shape Your Future with Smart Study Paths!</h1>
+</div>
+
+<!-- Start of Information Section -->
+<div class="container">
+    <h2 class="text-center mb-4">Find Your Perfect Educational Path!</h2>
+
+    <div class="info-section">
+        <p>Our recommendation system is designed to guide you based on your strengths and interests. We analyze various parameters, from academic scores to extracurricular involvement, and provide personalized suggestions.</p>
+    </div>
+
+    <div class="info-section">
+        <h3>🎯 How Does the Recommendation System Work?</h3>
+        <p>By filling out the form below with your academic details and preferences, the system calculates your total and average scores across subjects, then uses that data to recommend study paths and fields that align with your strengths.</p>
+        <p>The system takes into account your:</p>
+        <ul>
+            <li>Academic Scores in various subjects</li>
+            <li>Gender</li>
+            <li>Extracurricular Activities</li>
+            <li>Weekly Self-Study Hours</li>
+            <li>Absence Days</li>
+        </ul>
+    </div>
+
+    <div class="info-section">
+        <h3>💡 Why Choose This System?</h3>
+        <p>Whether you're deciding on a career in science, arts, commerce, or even specialized fields, this tool will help you identify the ideal course path based on your interests and abilities. It’s a simple, personalized approach to guide you toward success!</p>
+    </div>
+
+<div class=" container mt-5">
+ <h2 class="text-center mb-4">Fill in the details to get recommendations</h2>
+     <div class="p-4 rounded shadow" style="background-color: #ffe6f0;">
+    <form method="post" action="/pred">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select class="form-control" id="gender" name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="part_time_job">Part-Time Job:</label>
+                    <select class="form-control" id="part_time_job" name="part_time_job">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="absence_days">Absence Days:</label>
+                    <input type="number" class="form-control" id="absence_days" name="absence_days">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="extracurricular_activities">Extracurricular Activities:</label>
+                    <select class="form-control" id="extracurricular_activities" name="extracurricular_activities">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="weekly_self_study_hours">Weekly Self-Study Hours:</label>
+                    <input type="number" class="form-control" id="weekly_self_study_hours" name="weekly_self_study_hours">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="math_score">Math Score:</label>
+                    <input type="number" class="form-control" id="math_score" name="math_score" onchange="calculateScores()">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="history_score">History Score:</label>
+                    <input type="number" class="form-control" id="history_score" name="history_score" onchange="calculateScores()">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="physics_score">Physics Score:</label>
+                    <input type="number" class="form-control" id="physics_score" name="physics_score" onchange="calculateScores()">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="chemistry_score">Chemistry Score:</label>
+                    <input type="number" class="form-control" id="chemistry_score" name="chemistry_score" onchange="calculateScores()">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="biology_score">Biology Score:</label>
+                    <input type="number" class="form-control" id="biology_score" name="biology_score" onchange="calculateScores()">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="english_score">English Score:</label>
+                    <input type="number" class="form-control" id="english_score" name="english_score" onchange="calculateScores()">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="geography_score">Geography Score:</label>
+                    <input type="number" class="form-control" id="geography_score" name="geography_score" onchange="calculateScores()">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="total_score">Total Score:</label>
+                    <input type="number" class="form-control" id="total_score" name="total_score" readonly>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="average_score">Average Score:</label>
+                    <input type="number" step="0.000001" class="form-control" id="average_score" name="average_score" readonly>
+                </div>
+            </div>
+        </div>
+        <!-- Add more form fields here as needed -->
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+         <!-- Career Roadmap Timeline -->
+<div class="roadmap-container mt-5">
+    <h3 class="text-center mb-4" style="color: #6a1b9a;">🚀 Your Career Roadmap</h3>
+    <div class="timeline">
+        <div class="timeline-step left">
+            <div class="content">
+                <h5>📘 Class 10</h5>
+                <p>Focus on strong basics in core subjects and start exploring your interests.</p>
+            </div>
+        </div>
+        <div class="timeline-step right">
+            <div class="content">
+                <h5>📚 Class 11–12</h5>
+                <p>Select your stream (Science, Commerce, Arts) and build deep subject knowledge.</p>
+            </div>
+        </div>
+        <div class="timeline-step left">
+            <div class="content">
+                <h5>📝 Entrance Exams</h5>
+                <p>Prepare for relevant competitive exams based on your chosen career path.</p>
+            </div>
+        </div>
+        <div class="timeline-step right">
+            <div class="content">
+                <h5>🏫 College</h5>
+                <p>Join a top college/university aligned with your stream and career goals.</p>
+            </div>
+        </div>
+        <div class="timeline-step left">
+            <div class="content">
+                <h5>💼 Career</h5>
+                <p>Step into your dream profession and continue growing through upskilling!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+    <div class="footer">
+        <p>&copy;  Education Recommendation System. All rights reserved.</p>
+    </div>
+</body>
+</html>
